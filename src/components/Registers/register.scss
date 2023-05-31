@@ -1,0 +1,106 @@
+@import '../../global.scss';
+.Register {
+    margin-top: 250px;
+    display: flex;
+    justify-content: center;
+
+    .form-register {
+        width: 400px;
+        min-height: 500px;
+        background-color: #fff;
+        text-align: center;
+        padding: 0px 30px 20px 30px;
+        -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+        box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+        @media (max-width: 739px) {
+            width: 100%;
+        }
+        h1 {
+            padding: 24px;
+            margin-bottom: 8px;
+            font-size: 24px;
+            color: #1b1b28;
+        }
+        .form-group {
+            .form-control {
+                height: 42px;
+                border: 1px solid #e2e5ec;
+                color: #898b92;
+                margin-top: 10px;
+            }
+        }
+        .remember-forget {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            input {
+                position: relative;
+                top: -12px;
+            }
+            span {
+                color: #898b92;
+            }
+        }
+        .btn-submit {
+            padding: 10px 20px;
+            background-color: $mainColor;
+            color: #fff;
+            width: 100%;
+            border-radius: 3px;
+            margin: 20px 0 60px;
+            .link {
+                text-decoration: none;
+                color: #fff;
+            }
+            &:hover {
+                background-color: $hovColor;
+            }
+        }
+        .login-width {
+            font-size: 13px;
+            color: #898b92;
+        }
+        .social-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            .google {
+                font-size: 20px;
+                background-color: #c32424;
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                margin-right: 10px;
+            }
+            .facebook {
+                font-size: 20px;
+                background-color: #307aaf;
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+        }
+        .text-center {
+            padding-top: 20px;
+            p {
+                font-size: 13px;
+                color: #6c757d;
+                margin-bottom: 0;
+            }
+            span {
+                font-size: 13px;
+                color: $mainColor;
+                cursor: pointer;
+            }
+        }
+    }
+}

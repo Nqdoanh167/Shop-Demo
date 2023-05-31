@@ -1,0 +1,40 @@
+@import '../../global.scss';
+.product {
+    text-align: left;
+    border: 1px solid #f2f3f8;
+    transition: all 1s ease;
+    border-radius: 5px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+    img {
+        width: 100%;
+    }
+    .price {
+        .currently {
+            font-size: 16px;
+            color: $mainColor;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+    }
+    .rating {
+        color: #ffa707;
+        font-size: 8px;
+        margin-left: 10px;
+    }
+    .desc {
+        font-size: 14px;
+        font-weight: 400;
+        color: #333;
+        margin: 10px;
+        line-height: 18px;
+        height: 36px;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

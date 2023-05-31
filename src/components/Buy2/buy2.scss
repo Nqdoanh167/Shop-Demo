@@ -1,0 +1,18 @@
+@import '../../global.scss';
+.info {
+    border: 1px solid #e2e5ec;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    .info-plus {
+        font-size: 40px;
+        font-weight: 100;
+        margin: 10px;
+    }
+}
+.container {
+    width: 100%;
+    padding: 0;
+}

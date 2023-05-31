@@ -1,0 +1,28 @@
+@import '../../global.scss';
+.product-one,
+.product-two,
+.product-three {
+    //  height: 400px;
+    background-color: #fff;
+    padding: 16px 24px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    .flash {
+        display: flex;
+        align-items: center;
+    }
+    .title {
+        margin: 0;
+        font-weight: 600;
+    }
+    .countDown {
+        color: $mainColor;
+        font-weight: 800;
+        font-size: 20px;
+        padding: 0 10px;
+    }
+}
+.product-wrapper {
+    padding-left: 10px;
+}

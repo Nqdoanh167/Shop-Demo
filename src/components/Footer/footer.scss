@@ -1,0 +1,35 @@
+.footter {
+    background-color: #333;
+    .footter-top {
+        padding: 60px 0;
+        color: #fff;
+
+        .heading {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 32px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            li {
+                line-height: 24px;
+                font-size: 12px;
+            }
+        }
+    }
+    .apps {
+        display: flex;
+        justify-content: space-between;
+        img {
+            width: 90%;
+        }
+    }
+
+    .footter-bottom {
+        text-align: center;
+        background-color: #ccc;
+        padding: 8px 0;
+    }
+}

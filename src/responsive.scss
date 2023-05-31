@@ -1,0 +1,46 @@
+/* Mobile and Tabnet*/
+@media (max-width: 1023px) {
+}
+/* Tabnet*/
+@media (min-width: 740px) and (max-width: 1023px) {
+}
+/* Mobile */
+@media (max-width: 739px) {
+    body {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .headerTop {
+        .left {
+            justify-content: space-between;
+            .item {
+                padding: 0;
+
+                &.money {
+                    display: none;
+                }
+            }
+        }
+        .right {
+            .help {
+                display: none;
+            }
+        }
+    }
+    .headerMid {
+        .inner-wrap {
+            display: none;
+        }
+    }
+    .headerBottom {
+        ul {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    }
+    .siderWrapper {
+        margin-top: 160px;
+    }
+}

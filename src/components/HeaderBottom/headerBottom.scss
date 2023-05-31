@@ -1,0 +1,26 @@
+@import '../../global.scss';
+@import '../../responsive.scss';
+.headerBottom {
+    padding: 5px;
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+
+        li {
+            padding: 13px 16px;
+            cursor: pointer;
+            color: #b1b1b6;
+            font-weight: 600;
+
+            &.active {
+                color: #1b1b28;
+                font-size: 16px;
+            }
+        }
+    }
+}

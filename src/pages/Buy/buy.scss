@@ -1,0 +1,64 @@
+@import '../../global.scss';
+.wrapBuy {
+    width: 1200px;
+    margin: 311px auto 0;
+    .bottomProductBuy {
+        margin-bottom: 30px;
+    }
+
+    .feedBack {
+        margin-top: 50px;
+
+        .evaluate {
+            display: flex;
+
+            align-items: center;
+            .star {
+                font-size: 24px;
+                transition: color 0.5s;
+                cursor: pointer;
+                &:hover,
+                &:hover ~ & {
+                    color: $mainColor;
+                }
+            }
+        }
+        .comment {
+            textarea {
+                padding: 10px;
+            }
+        }
+        button {
+            padding: 7px 16px;
+            background-color: $mainColor;
+            color: #fff;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: $hovColor;
+                color: #fff;
+            }
+        }
+    }
+}
+.bt-xct {
+    padding: 7px 16px;
+    background-color: $mainColor;
+    color: #fff;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: $hovColor;
+        color: #fff;
+    }
+}
+.nav-buy {
+    margin-bottom: 10px;
+    span {
+        cursor: pointer;
+        font-weight: 600;
+        &:hover {
+            color: $mainColor;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import '../../global.scss';
+@import '../../responsive.scss';
+.left,
+.right {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.left {
+    .item {
+        padding-right: 20px;
+
+        &.language {
+            position: relative;
+            cursor: pointer;
+
+            .language-wrapper {
+                display: flex;
+                padding: 9px 0;
+                position: absolute;
+                height: 91px;
+                background-color: #f1f1f1;
+                top: 32px;
+                width: 155px;
+                flex-direction: column;
+                left: -2px;
+                border-radius: 3px;
+                -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+                box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+
+                .language-item {
+                    padding: 8px 24px;
+                    &:hover {
+                        background-color: $mainColor;
+                        color: #fff;
+                    }
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.right {
+    justify-content: right;
+    .item {
+        padding-left: 20px;
+        a {
+            font-size: 13px;
+            color: #1b1b28;
+        }
+        span {
+            cursor: pointer;
+        }
+    }
+}

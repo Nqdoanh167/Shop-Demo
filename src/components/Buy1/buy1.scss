@@ -1,0 +1,22 @@
+.wrap {
+    //  text-align: center;
+    input {
+        width: 15%;
+    }
+    .minus {
+        margin-right: 25px;
+        padding: 7px 16px;
+        border-radius: 50%;
+        background-color: #f2f3f8;
+
+        &.disappear {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+    .plus {
+        padding: 7px 16px;
+        border-radius: 50%;
+        background-color: #f2f3f8;
+    }
+}
