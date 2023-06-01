@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './buy.scss';
 import axios from 'axios';
-import { Rating } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 export default function Buy({ idAcc }) {
     const user = localStorage.hasOwnProperty('user') ? JSON.parse(localStorage.getItem('user')) : [];
@@ -41,96 +40,97 @@ export default function Buy({ idAcc }) {
         window.scrollTo(0, 0);
         console.log(user.id);
     };
-    const [value, setValue] = useState('0');
+    const [value, setValue] = useState('1');
     return (
         <div className="wrapBuy">
             <div className="nav-buy">
-                <span onClick={() => setValue('0')}>Đang chờ xử lý/</span>
-                <span onClick={() => setValue('1')}>Thành công/</span>
-                <span onClick={() => setValue('2')}>Đã bị hủy</span>
+                <span onClick={() => setValue('1')}>Đang chờ xử lý</span>
+                <span onClick={() => setValue('2')}>Thành công</span>
+                <span onClick={() => setValue('0')}>Đã bị hủy</span>
             </div>
 
-            {list.map((item) => {
-                return (
-                    item.statusBill === value && (
-                        <div className="bottomProductBuy" key={item.id}>
-                            <h4>Chi tiết đơn hàng </h4>
+            {list.length > 0 ? (
+                list.map(
+                    (item) =>
+                        item.statusBill === value && (
+                            <div className="bottomProductBuy" key={item.id}>
+                                <h4>Chi tiết đơn hàng </h4>
 
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th>Sản phẩm</th>
-                                        <th>Giá</th>
-                                        <th>Thuế</th>
-                                        <th>Số Lượng</th>
-                                        <th>Toàn Bộ</th>
-                                        <th>Hành động</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div className="product-transport">
-                                                <img src={item.DataProductOfBill.imageP} alt="" />
-                                                <span className="product-name">{item.DataProductOfBill.nameP}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            {item.DataProductOfBill.priceP.toLocaleString('it-IT', {
-                                                style: 'currency',
-                                                currency: 'VND',
-                                            })}
-                                        </td>
-                                        <td>0%</td>
-                                        <td>{item.quantityP}</td>
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Giá</th>
+                                            <th>Thuế</th>
+                                            <th>Số Lượng</th>
+                                            <th>Toàn Bộ</th>
+                                            <th>Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div className="product-transport">
+                                                    <img src={item.DataProductOfBill.imageP} alt="" />
+                                                    <span className="product-name">{item.DataProductOfBill.nameP}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {item.DataProductOfBill.priceP.toLocaleString('it-IT', {
+                                                    style: 'currency',
+                                                    currency: 'VND',
+                                                })}
+                                            </td>
+                                            <td>0%</td>
+                                            <td>{item.quantityP}</td>
 
-                                        <td>
-                                            {item.totalMoney.toLocaleString('it-IT', {
-                                                style: 'currency',
-                                                currency: 'VND',
-                                            })}
-                                        </td>
-                                        <td>
-                                            <button className="bt-xct" onClick={() => handleXem(item)}>
-                                                Xem chi tiết
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div className="Subtotal">
-                                <div className="Subtotal-text">Tổng phụ</div>
-                                <div className="Subtotal-price">
-                                    {item.totalMoney.toLocaleString('it-IT', {
-                                        style: 'currency',
-                                        currency: 'VND',
-                                    })}
+                                            <td>
+                                                {item.totalMoney.toLocaleString('it-IT', {
+                                                    style: 'currency',
+                                                    currency: 'VND',
+                                                })}
+                                            </td>
+                                            <td>
+                                                <button className="bt-xct" onClick={() => handleXem(item)}>
+                                                    Xem chi tiết
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div className="Subtotal">
+                                    <div className="Subtotal-text">Tổng phụ</div>
+                                    <div className="Subtotal-price">
+                                        {item.totalMoney.toLocaleString('it-IT', {
+                                            style: 'currency',
+                                            currency: 'VND',
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
-                            <div style={{ marginTop: '10px' }}>
-                                Phương thức
-                                <span style={{ fontSize: '17px', fontWeight: '600', marginLeft: '10px' }}>
-                                    {item.methodPay ? 'Thanh toán tiền mặt' : 'Đã chuyển khoản'}
-                                </span>
-                            </div>
-                            <div style={{ marginTop: '10px', marginRight: '10px' }}>
-                                Trạng thái
-                                <span style={{ fontSize: '17px', fontWeight: '600', marginLeft: '10px' }}>
-                                    {item.statusBill === '0'
-                                        ? 'Đang chờ xử lý'
-                                        : item.statusBill === '1'
-                                        ? 'Thành công'
-                                        : 'Đã bị hủy'}
-                                </span>
-                            </div>
-                            <div style={{ marginTop: '10px', marginRight: '10px' }}>
-                                Thời gian
-                                <span style={{ fontSize: '17px', fontWeight: '600', marginLeft: '10px' }}>
-                                    {item.dateBill}
-                                </span>
-                            </div>
+                                <div style={{ marginTop: '10px' }}>
+                                    Phương thức
+                                    <span style={{ fontSize: '17px', fontWeight: '600', marginLeft: '10px' }}>
+                                        {item.methodPay ? 'Thanh toán tiền mặt' : 'Đã chuyển khoản'}
+                                    </span>
+                                </div>
+                                <div style={{ marginTop: '10px', marginRight: '10px' }}>
+                                    Trạng thái
+                                    <span style={{ fontSize: '17px', fontWeight: '600', marginLeft: '10px' }}>
+                                        {item.statusBill === '1'
+                                            ? 'Đang chờ xử lý'
+                                            : item.statusBill === '2'
+                                            ? 'Thành công'
+                                            : 'Đã bị hủy'}
+                                    </span>
+                                </div>
+                                <div style={{ marginTop: '10px', marginRight: '10px' }}>
+                                    Thời gian
+                                    <span style={{ fontSize: '17px', fontWeight: '600', marginLeft: '10px' }}>
+                                        {item.dateBill}
+                                    </span>
+                                </div>
 
-                            {/* <div className="feedBack">
+                                {/* <div className="feedBack">
                                 {item.openFeedback === null ? (
                                     <>
                                         <h4>Đánh giá của bạn</h4>
@@ -163,10 +163,12 @@ export default function Buy({ idAcc }) {
                                     <h3>Cảm ơn bạn đẫ đánh giá sản phẩm</h3>
                                 )}
                             </div> */}
-                        </div>
-                    )
-                );
-            })}
+                            </div>
+                        ),
+                )
+            ) : (
+                <span>Không có sản phẩm nào cả</span>
+            )}
         </div>
     );
 }

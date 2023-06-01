@@ -21,7 +21,7 @@ export default function Buy1() {
         totalMoney: buy[0].quantityP * buy[0].priceP,
         methodPay: methodPay,
         noteBill: '1',
-        statusBill: '0',
+        statusBill: '1',
         quantityP: buy[0].quantityP,
         openFeedback: 0,
     };

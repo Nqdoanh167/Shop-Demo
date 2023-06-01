@@ -99,6 +99,15 @@
                 color: #fff;
             }
         }
+        .cancel {
+            margin-left: 10px;
+            background-color: #dfcbcb;
+            color: while;
+            &:hover {
+                background-color: red;
+                color: #fff;
+            }
+        }
     }
 }
 

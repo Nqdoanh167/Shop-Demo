@@ -3,7 +3,7 @@ import '../../grid.css';
 import Product from '../Product/Product';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate, NavLink } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Rating } from '@mui/material';
 function Productdesc() {
     const navigate = useNavigate();

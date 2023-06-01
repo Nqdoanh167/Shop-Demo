@@ -46,8 +46,39 @@ function Logins({ setUser }) {
             }
         }
     };
+
     const [loading, setLoading] = useState(false);
 
+    const [info, setInfo] = useState({
+        name: '',
+        email: '',
+    });
+    const [open, setOpen] = useState(false);
+    const handleOnchange = (e) => {
+        setInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+        console.log(info);
+        try {
+            let data = await axios.post('https://data-bebasic.onrender.com/api/v1/forgot-password', info);
+            console.log(data);
+            if (data && data.data.errCode !== 0) {
+                alert(data.data.errMessage);
+            }
+            if (data && data.data.errCode === 0) {
+                alert(data.data.message);
+                setOpen(false);
+            }
+        } catch (error) {
+            if (error.response) {
+                if (error.response.data) {
+                    alert(error.response.data.errMessage);
+                }
+            }
+        }
+    };
     return (
         <div className="Login">
             <div className="form ">
@@ -77,7 +108,44 @@ function Logins({ setUser }) {
                         <span>Nhớ tôi</span>
                     </div>
                     <div className="forget">
-                        <a href="/">Quên mật khẩu?</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => setOpen(true)}>
+                            Quên mật khẩu?
+                        </span>
+                        {open && (
+                            <div className="modal ">
+                                <div className="modal__container" style={{ width: '400px' }}>
+                                    <h3>Quên mật khẩu</h3>
+                                    <form>
+                                        <div className="form-group">
+                                            <label htmlFor="name">Nhập họ và tên</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name="name"
+                                                placeholder="Nhập họ và tên"
+                                                onChange={handleOnchange}
+                                            />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="email">Nhập email</label>
+                                            <input
+                                                type="email"
+                                                className="form-control"
+                                                name="email"
+                                                placeholder="Nhập email"
+                                                onChange={handleOnchange}
+                                            />
+                                        </div>
+
+                                        <button onClick={handleClick}>Gửi</button>
+                                        <button onClick={() => setOpen(!open)} className="cancel">
+                                            Hủy
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 

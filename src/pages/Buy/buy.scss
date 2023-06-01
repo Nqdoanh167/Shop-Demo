@@ -54,9 +54,16 @@
 }
 .nav-buy {
     margin-bottom: 10px;
+    padding: 10px;
+    //  background-color: #fff;
+    display: flex;
     span {
         cursor: pointer;
         font-weight: 600;
+        margin-right: 10px;
+        color: #000;
+        border: 1px solid #f1f1f1;
+        padding: 5px;
         &:hover {
             color: $mainColor;
         }
